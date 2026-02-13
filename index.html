@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lovetaker — Gemaya</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #FFE4EF;
+    font-family: 'Quicksand', sans-serif;
+    color: #7F3838;
+}
+
+/* HERO */
+.hero {
+    height: 100vh;
+    background: url('6339092784115027687.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+    position: relative;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 230, 236, 0.6);
+}
+
+.hero-content {
+    position: relative;
+    max-width: 800px;
+}
+
+.hero h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 60px;
+}
+
+.hero-text {
+    background: rgba(255,255,255,0.85);
+    padding: 25px;
+    border-radius: 20px;
+    line-height: 1.7;
+}
+
+/* ⭐ LONG TEXT TANPA CARD */
+.long-text {
+    padding: 80px 20px 10px;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.9;
+}
+
+.long-text-box {
+    max-width: 850px;
+    margin: auto;
+    background: rgba(255,255,255,0.85);
+    padding: 35px;
+    border-radius: 25px;
+    line-height: 1.8;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* SECTION */
+.section {
+    padding: 20px 20px 20px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* CARD */
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 50px;
+    padding: 30px;
+    border-radius: 25px;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.75);
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+.card-text {
+    z-index: 2;
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 550px;
+}
+
+/* NORMAL IMAGE */
+.card img.single {
+    width: 340px;
+    height: 340px;
+    object-fit: contain;
+    border-radius: 20px;
+    z-index: 2;
+}
+
+/* REVERSE CARD */
+.card.reverse {
+    flex-direction: row-reverse;
+}
+
+/* COLLAGE CARD 2 */
+
+.photo-collage {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    flex-shrink: 0;
+    z-index: 2;
+}
+
+.photo.main {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    z-index: 3;
+}
+
+.photo.small {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    position: absolute;
+}
+
+.top-left { top: 0; left: 0; }
+.top-right { top: 0; right: 0; }
+.bottom-left { bottom: 0; left: 0; }
+.bottom-right { bottom: 0; right: 0; }
+
+/* CARD 3 */
+
+.couple-collage {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    flex-shrink: 0;
+    z-index: 2;
+}
+
+.c-photo {
+    position: absolute;
+    width: 230px;
+    height: 170px;
+    object-fit: cover;
+}
+
+.photo1 { top: 0; left: 0; }
+.photo2 { bottom: 0; left: 0; }
+.photo3 { top: 70px; right: -30px; }
+
+.love-sticker {
+    position: absolute;
+    top: -25px;
+    right: 40px;
+    width: 150px;
+}
+
+/* CARD 4 */
+
+.card4-collage {
+    width: 350px;
+    z-index: 2;
+}
+
+.card4-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.card4-bottom {
+    display: flex;
+    gap: 10px;
+}
+
+.card4-bottom img {
+    width: 50%;
+    height: 160px;
+    object-fit: cover;
+}
+
+/* ⭐ FOOTER BARU */
+.footer-love {
+    text-align: center;
+    font-size: 18px;
+    padding: 10px 27px 40px;
+    margin-top: -20px;
+    opacity: 0.7;
+    font-style: italic;
+}
+
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .card,
+    .card.reverse {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .photo-collage,
+    .couple-collage {
+        margin-top: 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ⭐ AUDIO AUTO PLAY + LOOP -->
+<audio id="bgMusic" loop>
+    <source src="i'd like to watch you sleeping.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+document.addEventListener("click", function () {
+    const music = document.getElementById("bgMusic");
+    music.play();
+}, { once: true });
+</script>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>Sayangku, Gemaya</h1>
+        <div class="hero-text">
+           tbh, aku gatau harus mulai cerpen ini dari mana. 
+           sebelum mulai baca, tap dulu ya dimana aja
+        </div>
+    </div>
+</section>
+
+<section class="long-text">
+
+i love u today, tomorrow, n forever. tysm for everything u hv done for me for treating me right, loving me unconditionally, n always making me feel wanted n appreciated. im so grateful for ur patience, care, n support through both the good times n the hard times. no words can truly explain how much ur love n presence mean to me. i'll always treasure u, stand by u, n love u with all my heart. kalo kata orang kamu beruntung punya aku, nyatanya aku yang beruntung punya kamu sayang. jika bukan kamu orangnya, aku ga akan pernah tau bahwa aku layak dicintai sebaik ini, cintaku begitu besar ke kamu, aku harap kamu juga selalu cinta aku dengan semestinya. kalo bukan kamu orangnya, aku mungkin ga akan pernah tau rasanya dicintai sebaik dan sehangat ini. kamu ngajarin aku kalau aku juga layak dicintai, aku juga pantes dapet cinta yang tulus. cintaku buat kamu besar banget, bahkan lebih dari yang bisa aku ungkapin lewat kalimat. i love u in every way, in every version of me, in every version of us. jutaan bahkan miliaran alasan kenapa aku bisa sejatuh cinta ini sama kamu sang pemilik hati yang seluas samudra. aku ga bakalan sebut semua alasannya, karena sebagian alasan itu tersimpan di rasa yang mungkin udah kamu sadari. i may not be the first u loved, the first who made ur heart race, or the first who made u believe in love, but i want to be the one who stays when everything else fades. the one who proves that love can still be gentle, true, n lasting
+</section>
+
+<section class="section">
+
+<div class="card" style="background-image:url('Rectangle 4.png')">
+    <img src="Screenshot_2026-02-11_214558-removebg-preview.png" class="single">
+    <div class="card-text">
+       dimana pun kamu berada, aku bakalan tetep sayang dan selalu cinta kamu. aku bangga sama kamu hari ini, even kamu ga melakukan hal keren. bagi aku, kamu selalu keren. pacarku, cantiku selalu sempurna dimata aku dan aku harap kamu ga pernah ragu sama perasaan ini. aku selalu ada untuk kamu, lari ke aku kalo kamu ga baik baik aja, jangan pernah ngerasa sendirian, dan jika kamu ragu untuk melakukan sesuatu, tolong liat aku dibelakang kamu ya, aku selalu siap untuk kamu repotkan. kuteguk segala badai dan ombakmu tanpa menawar asin juga perihnya. saat kamu runtuh, aku memilih menjadi tanah: alas yang sabar, menampung jatuh hingga tumbuh
+    </div>
+</div>
+
+<div class="card reverse" style="background-image:url('Rectangle 5.png')">
+
+    <div class="photo-collage">
+        <img src="Rectangle 6.png" class="photo main">
+        <img src="Rectangle 15.png" class="photo small top-left">
+        <img src="Rectangle 14.png" class="photo small top-right">
+        <img src="Rectangle 16.png" class="photo small bottom-left">
+        <img src="Rectangle 13.png" class="photo small bottom-right">
+    </div>
+
+    <div class="card-text">
+      sejak mengenalmu, dunia terasa lebih berwarna, dan kecantikanmu adalah lukisan nyata yang tak pernah selesai. jika aku seorang pelukis, maka hatimu adalah kanvas terindah yang ingin kuhiasi dengan warna warna cinta.
+      terimakasih ya, sayang? karna udah peluk raga kecilku yang aneh, childish, ribet, bawel, suka bikin kamu ngambek, im beyond thankful. kadang aku mikir, how did i get this lucky? bisa dicintai seseorang kaya kamu. no matter how messy or loud i can be, u r the one i always wanna run to. jika kamu adalah hujan badai yang penuh gemuruh, aku adalah yang tidak memilih berteduh
+    </div>
+
+</div>
+
+<div class="card" style="background-image:url('Rectangle 18.png')">
+
+    <div class="couple-collage">
+        <img src="Rectangle 19.png" class="c-photo photo1">
+        <img src="Rectangle 22.png" class="c-photo photo2">
+        <img src="Rectangle 20.png" class="c-photo photo3">
+        <img src="download__59_-removebg-preview.png" class="love-sticker">
+    </div>
+
+    <div class="card-text">
+       kamu adalah sebuah puisi yang sangat cantik dan menawan, diksi yang terjalin menuju kamu adalah rangkuman indahnya kehadiranmu.
+        tuhan tidak menciptakan manusia dengan terlihat sempurna di mata manusia, kamu tetaplah definisi keindahan yang selalu aku ciptakan dalam bentuk tulisan syukur, dan kamu akan selalu aman bahkan abadi. namamu aku rayakan bersama amin paling serius dalam balutan kalimat yang aku tujukan untuk kebahagiaanmu. semua tentangmu ingin kurekam indahnya, aku suka semua yang ada dalam dirimu dan banyak hal yang harus dunia tau bahwa dirimu unik dan begitu ajaib dimataku. dan pada kemungkinan ini, aku memilih untuk mencintaimu, membanjiri sekat hatimu dengan ombak kasihku
+    </div>
+
+</div>
+
+<div class="card reverse" style="background-image:url('Rectangle 23.png')">
+
+    <div class="card4-collage">
+        <img src="Rectangle 26.png" class="card4-top">
+
+        <div class="card4-bottom">
+            <img src="Rectangle 28.png">
+            <img src="Rectangle 28.png">
+        </div>
+    </div>
+
+    <div class="card-text">
+        semoga gemaya selalu tersenyum di setiap harinya, dan aku harap banyak kebahagiaan datang untuknya. doaku selalu sama, semoga cintaku selalu tersenyum dengan senyuman manisnya itu. logika pun dibuat tak berdaya oleh senyumnya yang sederhana. bahkan, bumi pun lupa cara berotasi ketika senyummu berseri. selagi cintaku tersenyum, berarti hari hariku akan terus berwarna
+    </div>
+
+</section>
+
+<!-- ⭐ FOOTER -->
+<footer class="footer-love">
+    built with soul, a little piece of daniel's love for gemaya
+</footer>
+
+</body>
+</html>
